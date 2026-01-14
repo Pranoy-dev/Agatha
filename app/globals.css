@@ -1,26 +1,428 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+/* Legora Design System - Exact Specifications */
+
+/* Font Face Declarations */
+@font-face {
+  font-family: "Rhymes Display Light";
+  src: url("https://framerusercontent.com/assets/7s7bua56o0DYD6j4B9bRmhCwBs.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl Book";
+  src: url("https://framerusercontent.com/assets/EbG4xrwDO0EFGlSpWIfYL2pLbK4.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Legora Color Palette - Exact Colors from Website */
+:root {
+  /* Primary Colors */
+  --legora-bg-primary: #fefefc; /* Main background - very light off-white */
+  --legora-text-primary: #0a0a0a; /* Primary text - very dark gray */
+  --legora-link-color: #0000ee; /* Link color - standard blue */
+  --legora-bg-dark: #0a0a0a; /* Dark section background */
+  --legora-bg-accent: #ebf5ed; /* Vision section background - light green */
+  
+  /* Legacy colors (kept for compatibility) */
+  --legora-primary-dark: #0a0a0a;
+  --legora-primary-light: #fefefc;
+  --legora-accent-blue: #0000ee;
+  --legora-gray-100: #f5f5f5;
+  --legora-gray-600: #666666;
+  --legora-gray-900: #0a0a0a;
+  
+  /* Typography Variables */
+  --legora-font-display: "Rhymes Display Light", "Rhymes Display Light Placeholder", sans-serif;
+  --legora-font-body: "Suisse Intl Book", "Suisse Intl Book Placeholder", sans-serif;
+  --legora-font-ui: "Inter", sans-serif;
+  
+  /* Font Sizes - Exact from Website */
+  --legora-text-hero: 168px; /* H1 hero headline */
+  --legora-text-h2: 32px; /* Section headlines */
+  --legora-text-h3: 24px; /* Subsection headlines */
+  --legora-text-body: 13px; /* Body text */
+  --legora-text-nav: 12px; /* Navigation and UI */
+  
+  /* Line Heights - Exact from Website */
+  --legora-line-height-hero: 159.6px; /* 95% of font size */
+  --legora-line-height-h2: 35.2px; /* 110% of font size */
+  --legora-line-height-h3: 26.4px; /* 110% of font size */
+  --legora-line-height-body: 16.9px; /* 130% of font size */
+  
+  /* Letter Spacing - Exact from Website */
+  --legora-letter-spacing-hero: -3.36px;
+  --legora-letter-spacing-h2: -0.32px;
+  --legora-letter-spacing-h3: -0.24px;
+  
+  /* Spacing - Exact from Website */
+  --legora-spacing-section-bottom: 160px;
+  --legora-spacing-section-top: 24px;
+  --legora-spacing-section-sides: 24px;
+  --legora-spacing-hero-top: 44px;
+  --legora-spacing-hero-bottom: 80px;
+  
+  /* Button Styles */
+  --legora-button-padding: 4px 18px;
+  --legora-button-radius: 32px;
+  --legora-button-bg: #000000;
+  --legora-button-text: #ffffff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  /* Body Styles - Legora Exact */
+  body {
+    @apply bg-background text-foreground;
+    background-color: var(--legora-bg-primary);
+    color: var(--legora-text-primary);
+    font-family: var(--legora-font-body), var(--font-geist-sans), 'Inter', 'Helvetica Neue', sans-serif;
+    font-size: var(--legora-text-body);
+    line-height: var(--legora-line-height-body);
+  }
+  
+  /* Typography - Legora Exact Specifications */
+  h1 {
+    font-family: var(--legora-font-display);
+    font-size: clamp(64px, 10vw, 168px); /* Responsive: 64px mobile, 168px desktop */
+    font-weight: 400;
+    line-height: 0.95; /* 95% of font size */
+    letter-spacing: -0.02em; /* Responsive letter spacing */
+    color: var(--legora-text-primary);
+  }
+  
+  /* Desktop H1 - Exact Legora Spec */
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 168px;
+      line-height: 159.6px;
+      letter-spacing: -3.36px;
+    }
+  }
+  
+  h2 {
+    font-family: var(--legora-font-display);
+    font-size: clamp(24px, 4vw, 32px); /* Responsive: 24px mobile, 32px desktop */
+    font-weight: 400;
+    line-height: 1.1; /* 110% of font size */
+    letter-spacing: -0.01em; /* Responsive letter spacing */
+    color: var(--legora-text-primary);
+  }
+  
+  /* Desktop H2 - Exact Legora Spec */
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 32px;
+      line-height: 35.2px;
+      letter-spacing: -0.32px;
+    }
+  }
+  
+  h3 {
+    font-family: var(--legora-font-display);
+    font-size: clamp(20px, 3vw, 24px); /* Responsive: 20px mobile, 24px desktop */
+    font-weight: 400;
+    line-height: 1.1; /* 110% of font size */
+    letter-spacing: -0.01em; /* Responsive letter spacing */
+    color: var(--legora-text-primary);
+  }
+  
+  /* Desktop H3 - Exact Legora Spec */
+  @media (min-width: 1024px) {
+    h3 {
+      font-size: 24px;
+      line-height: 26.4px;
+      letter-spacing: -0.24px;
+    }
+  }
+  
+  p {
+    font-family: var(--legora-font-body);
+    font-size: var(--legora-text-body);
+    font-weight: 400;
+    line-height: var(--legora-line-height-body);
+    color: var(--legora-text-primary);
+  }
+  
+  /* Links - Legora Style */
+  a:not(.legora-button) {
+    color: var(--legora-link-color);
+    text-decoration: none;
+    font-family: var(--legora-font-ui);
+    font-size: var(--legora-text-nav);
+  }
+  
+  a:not(.legora-button):hover {
+    text-decoration: underline;
+  }
+  
+  /* Navigation & UI Elements */
+  nav, button, .nav-item {
+    font-family: var(--legora-font-ui);
+    font-size: var(--legora-text-nav);
+    font-weight: 400;
+    color: var(--legora-text-primary);
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Container utility - Legora Max Width */
+  .container {
+    @apply mx-auto w-full;
+    max-width: 1200px;
+    padding: 0 24px;
+  }
+  
+  /* Visual Separators - Clean Lines */
+  .legora-separator {
+    height: 1px;
+    background-color: rgba(10, 10, 10, 0.1);
+    border: none;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .legora-separator-dark {
+    height: 1px;
+    background-color: rgba(254, 254, 252, 0.2);
+    border: none;
+    margin: 0;
+    width: 100%;
+  }
+  
+  /* Legora Section Spacing */
+  .legora-section {
+    padding-top: var(--legora-spacing-section-top);
+    padding-bottom: var(--legora-spacing-section-bottom);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Legora Hero Section */
+  .legora-hero {
+    padding-top: var(--legora-spacing-hero-top);
+    padding-bottom: var(--legora-spacing-hero-bottom);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Section Separators - Clean Visual Distinctions */
+  .legora-section + .legora-section {
+    border-top: 1px solid rgba(10, 10, 10, 0.08);
+  }
+  
+  .legora-section[style*="background-color: var(--legora-bg-dark)"] {
+    border-top: 1px solid rgba(254, 254, 252, 0.1);
+  }
+  
+  .legora-section[style*="background-color: var(--legora-bg-accent)"] {
+    border-top: 1px solid rgba(10, 10, 10, 0.08);
+  }
+  
+  /* Legora Button Styles - Exact Match: Black background, White text */
+  .legora-button {
+    font-family: var(--legora-font-ui) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    padding: 12px 24px !important;
+    border-radius: 32px !important;
+    border: none !important;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none !important;
+    white-space: nowrap;
+    line-height: 1.5;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+  .legora-button:hover {
+    opacity: 0.9;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+  }
+  
+  .legora-button:active {
+    opacity: 0.8;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+  }
+  
+  .legora-button:focus {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    outline: none !important;
+  }
+  
+  /* Button separator pipe - white for visibility on black */
+  .legora-button .pipe-separator {
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 0 10px;
+    font-weight: 300;
+    font-size: 14px !important;
+  }
+  
+  /* Ensure button text is white */
+  .legora-button span {
+    color: #ffffff !important;
+  }
+  
+  /* "Book a demo" text - bold and slightly bigger */
+  .legora-button .button-cta-text {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+  }
+  
+  /* Override any link styles on buttons */
+  .legora-button,
+  .legora-button * {
+    color: #ffffff !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: fit-content;
 }
