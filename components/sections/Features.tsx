@@ -4,7 +4,16 @@ export function Features() {
   return (
     <section className="legora-section">
       <div className="mx-auto w-full" style={{ maxWidth: '1200px', padding: '0 24px' }}>
-        <div className="mb-16" style={{ textAlign: 'center' }}>
+        {/* Subtle divider line */}
+        <div 
+          style={{
+            width: '100%',
+            height: '1px',
+            backgroundColor: 'rgba(10, 10, 10, 0.08)',
+            marginBottom: '64px'
+          }}
+        />
+        <div className="mb-16" style={{ textAlign: 'left' }}>
           <p 
             className="mb-6"
             style={{
@@ -16,10 +25,10 @@ export function Features() {
               letterSpacing: '0.5px'
             }}
           >
-            Smarter Tools, Better Outcomes
+            SMARTER TOOLS, BETTER OUTCOMES
           </p>
           <h2 
-            className="mx-auto max-w-4xl"
+            className="max-w-4xl"
             style={{
               fontSize: '32px',
               fontWeight: 400,
@@ -29,30 +38,29 @@ export function Features() {
               color: 'var(--legora-text-primary)'
             }}
           >
-            Legora streamlines everything from research to drafting and review —
-            helping lawyers spend less time managing process, and more time
-            delivering value.
+            Agatha streamlines employee feedback and provides tailored guidance to leaders.
+            It reduces information asymmetry and becomes a shared intelligence layer for the organization.
           </h2>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" style={{ textAlign: 'left' }}>
           <FeatureCard
-            title="Review faster"
-            description="Being an exceptional lawyer means reviewing and reading mountains of material. Legora can analyze tens of thousands of documents simultaneously, and suggest well-crafted markup based on your preferences."
+            title="Employee feedback"
+            description="Great leadership starts with understanding people. Agatha gathers employee feedback and signals from across the organization to give leaders a clear view of skills, motivation, and expectations—all in one place."
             icon="review"
-            href="/product/tabular-review"
+            href="/product/employee-feedback"
           />
           <FeatureCard
-            title="Draft smarter"
-            description="Legora draws on precedent to draft, rewrite, and refine your content in Word. It identifies the substance of each document and suggests relevant, ready-to-use language—with you in control of what's approved and applied."
+            title="Advice Layer"
+            description="Agatha doesn't just show data. It interprets patterns and provides tailored guidance based on what's happening inside your teams, helping leaders know when to act, where to focus, and what matters most."
             icon="draft"
-            href="/product/word-add-in"
+            href="/product/advice-layer"
           />
           <FeatureCard
-            title="Research deeper"
-            description="Access up-to-date information, legal databases, and your DMS content, all within Legora. With partnerships across jurisdictions and integrations with iManage and SharePoint, everything lawyers need is now in one place."
+            title="Predictive intelligence"
+            description="Agatha detects early signals and emerging patterns to anticipate future risks and opportunities. By turning employee intelligence into foresight, leaders can act earlier, reduce surprises, and make better decisions with confidence."
             icon="research"
-            href="/product/legal-research"
+            href="/product/predictive-intelligence"
           />
         </div>
       </div>

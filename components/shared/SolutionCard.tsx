@@ -10,34 +10,49 @@ export function SolutionCard({ title, description, href }: SolutionCardProps) {
   return (
     <Link href={href} className="group block" style={{ textAlign: 'left' }}>
       <div className="h-full transition-all hover:opacity-80">
-        {/* Image Placeholder - Exact Legora Spec: 366px × 488px */}
+        {/* Image Placeholder with similar visual style to FeatureCard */}
         <div 
-          className="mb-6 w-full overflow-hidden rounded-lg bg-muted/30 flex items-center justify-center"
+          className="mb-8 w-full overflow-hidden rounded-lg flex items-center justify-center"
           style={{ 
             width: '100%',
             aspectRatio: '366 / 488',
-            maxWidth: '366px',
-            maxHeight: '488px'
+            backgroundColor: 'rgba(0, 0, 0, 0.03)',
+            backdropFilter: 'blur(8px)',
+            padding: '24px',
+            borderRadius: '12px'
           }}
         >
-          <div className="text-center p-4">
-            <span 
-              className="text-xs text-muted-foreground"
-              style={{ fontFamily: 'var(--legora-font-ui)' }}
-            >
-              Image placeholder
-              <br />
-              366 × 488px
-            </span>
+          <div 
+            className="w-full h-full rounded-lg flex items-center justify-center"
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '8px',
+              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+            }}
+          >
+            <div className="text-center p-4">
+              <span 
+                className="text-xs"
+                style={{ 
+                  fontFamily: 'var(--legora-font-ui)',
+                  color: 'rgba(10, 10, 10, 0.5)',
+                  fontSize: '11px'
+                }}
+              >
+                Image placeholder
+                <br />
+                366 × 488px
+              </span>
+            </div>
           </div>
         </div>
         
-        {/* Title - Exact Legora H3 Spec */}
+        {/* Title - Matching FeatureCard style */}
         <h3 
-          className="mb-3"
+          className="mb-4"
           style={{
             fontSize: '24px',
-            fontWeight: 400,
+            fontWeight: 700,
             lineHeight: '26.4px',
             letterSpacing: '-0.24px',
             fontFamily: 'var(--legora-font-display)',
@@ -47,15 +62,15 @@ export function SolutionCard({ title, description, href }: SolutionCardProps) {
           {title}
         </h3>
         
-        {/* Description - Exact Legora Body Spec */}
+        {/* Description - Matching FeatureCard style */}
         <p 
           className="leading-relaxed"
           style={{
             fontSize: '13px',
             fontWeight: 400,
-            lineHeight: '16.9px',
+            lineHeight: '20px',
             fontFamily: 'var(--legora-font-body)',
-            color: 'var(--legora-text-primary)'
+            color: 'rgba(10, 10, 10, 0.7)'
           }}
         >
           {description}

@@ -196,11 +196,18 @@
   /* Body Styles - Legora Exact */
   body {
     @apply bg-background text-foreground;
-    background-color: var(--legora-bg-primary);
-    color: var(--legora-text-primary);
+    background-color: var(--legora-bg-primary) !important;
+    color: var(--legora-text-primary) !important;
     font-family: var(--legora-font-body), var(--font-geist-sans), 'Inter', 'Helvetica Neue', sans-serif;
     font-size: var(--legora-text-body);
     line-height: var(--legora-line-height-body);
+    min-height: 100vh;
+  }
+  
+  /* Ensure main content is visible */
+  main {
+    min-height: 100vh;
+    background-color: var(--legora-bg-primary);
   }
   
   /* Typography - Legora Exact Specifications */
@@ -409,6 +416,17 @@
   .legora-button,
   .legora-button * {
     color: #ffffff !important;
+  }
+  
+  /* Smaller button for header */
+  .legora-button-small {
+    font-size: 12px !important;
+    padding: 5px 18px !important;
+  }
+  
+  .legora-button-small .button-cta-text {
+    font-size: 12px !important;
+    font-weight: 600 !important;
   }
 }
 

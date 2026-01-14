@@ -7,7 +7,7 @@ const certifications = [
   {
     title: "ISO 27001",
     description:
-      "Legora is fully certified with ISO 27001, the internationally recognized standard for information security management.",
+      "Agatha is fully certified with ISO 27001, the internationally recognized standard for information security management.",
   },
   {
     title: "SOC Type 2",
@@ -25,89 +25,114 @@ export function Certifications() {
   return (
     <section 
       className="legora-section"
-      style={{ backgroundColor: 'var(--legora-bg-dark)' }}
+      style={{ 
+        backgroundColor: 'var(--legora-bg-dark)',
+        paddingTop: '160px',
+        paddingBottom: '160px'
+      }}
     >
       <div className="mx-auto w-full" style={{ maxWidth: '1200px', padding: '0 24px' }}>
-        <div className="mb-12" style={{ textAlign: 'center' }}>
+        {/* Header Section */}
+        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
           <p 
-            className="mb-4"
             style={{
               fontSize: '13px',
               fontWeight: 400,
               lineHeight: '16.9px',
               fontFamily: 'var(--legora-font-body)',
-              color: 'var(--legora-bg-primary)'
+              color: 'rgba(255, 255, 255, 0.7)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
+              marginBottom: '16px'
             }}
           >
-            Certified & compliant
+            CERTIFIED & COMPLIANT
           </p>
           <h2 
-            className="mx-auto max-w-4xl"
+            className="mx-auto"
             style={{
               fontSize: '32px',
               fontWeight: 400,
               lineHeight: '35.2px',
               letterSpacing: '-0.32px',
               fontFamily: 'var(--legora-font-display)',
-              color: 'var(--legora-bg-primary)'
+              color: '#ffffff',
+              maxWidth: '900px'
             }}
           >
-            Legora is committed to maintaining compliance with the most
+            Agatha is committed to maintaining compliance with the most
             rigorous international safety and security standards.
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" style={{ textAlign: 'left' }}>
+        {/* Certifications Grid with vertical separators */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4" style={{ textAlign: 'left', gap: '0' }}>
           {certifications.map((cert, index) => {
             return (
-              <div key={index} className="h-full">
-                {/* Icon Placeholder - Exact Legora Spec: 56px × 56px */}
-                <div 
-                  className="mb-4 flex items-center justify-center"
-                  style={{ width: '56px', height: '56px' }}
-                >
-                  <div 
-                    className="bg-white/10 rounded-lg flex items-center justify-center"
-                    style={{ width: '56px', height: '56px' }}
-                  >
-                    <span 
-                      className="text-[10px] text-white/70"
-                      style={{ fontFamily: 'var(--legora-font-ui)' }}
-                    >
-                      Icon
-                    </span>
-                  </div>
-                </div>
-                
-                {/* Title - Exact Legora H3 Spec */}
+              <div 
+                key={index} 
+                className="h-full flex flex-col relative"
+                style={{
+                  paddingRight: index < certifications.length - 1 ? '40px' : '0',
+                  paddingLeft: index > 0 ? '40px' : '0',
+                  borderRight: index < certifications.length - 1 ? '1px solid rgba(255, 255, 255, 0.15)' : 'none'
+                }}
+              >
+                {/* Title - Bold */}
                 <h3 
-                  className="mb-3"
                   style={{
-                    fontSize: '24px',
-                    fontWeight: 400,
-                    lineHeight: '26.4px',
-                    letterSpacing: '-0.24px',
+                    fontSize: '20px',
+                    fontWeight: 700,
+                    lineHeight: '24px',
+                    letterSpacing: '-0.2px',
                     fontFamily: 'var(--legora-font-display)',
-                    color: 'var(--legora-bg-primary)'
+                    color: '#ffffff',
+                    marginBottom: '12px'
                   }}
                 >
                   {cert.title}
                 </h3>
                 
-                {/* Description - Exact Legora Body Spec */}
+                {/* Description */}
                 <p 
-                  className="leading-relaxed"
                   style={{
                     fontSize: '13px',
                     fontWeight: 400,
-                    lineHeight: '16.9px',
+                    lineHeight: '20px',
                     fontFamily: 'var(--legora-font-body)',
-                    color: 'var(--legora-bg-primary)',
-                    opacity: 0.9
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    marginBottom: '32px',
+                    flexGrow: 1
                   }}
                 >
                   {cert.description}
                 </p>
+                
+                {/* Icon - Circular outline at bottom */}
+                <div 
+                  className="flex items-center justify-start"
+                  style={{ width: '56px', height: '56px', marginTop: 'auto' }}
+                >
+                  <div 
+                    className="rounded-full border-2 flex items-center justify-center"
+                    style={{ 
+                      width: '56px', 
+                      height: '56px',
+                      borderColor: 'rgba(255, 255, 255, 0.3)'
+                    }}
+                  >
+                    <span 
+                      style={{ 
+                        fontSize: '10px',
+                        fontFamily: 'var(--legora-font-ui)',
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        fontWeight: 500
+                      }}
+                    >
+                      {cert.title === 'SOC Type 2' ? 'AICPA' : cert.title === 'GDPR' ? 'GDPR' : cert.title}
+                    </span>
+                  </div>
+                </div>
               </div>
             );
           })}

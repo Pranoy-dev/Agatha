@@ -47,11 +47,9 @@ export function LogoCarousel() {
     );
   };
 
-  if (!mounted) return null;
-
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="flex animate-scroll gap-8 whitespace-nowrap">
+      <div className={`flex gap-8 whitespace-nowrap ${mounted ? 'animate-scroll' : ''}`}>
         {/* First set */}
         {logos.map((logo, index) => renderLogo(logo, index))}
         {/* Duplicate set for seamless loop */}

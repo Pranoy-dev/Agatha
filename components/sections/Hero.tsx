@@ -10,33 +10,31 @@ export function Hero() {
       <div className="mx-auto w-full" style={{ maxWidth: '1200px', padding: '0 24px' }}>
         {/* Split Headline - Exact Legora Specs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
           <h1 className="mb-4" style={{
             fontFamily: 'var(--legora-font-display)',
-            color: 'var(--legora-text-primary)'
+            color: 'var(--legora-text-primary)',
+            fontSize: 'clamp(45px, 7vw, 118px)',
+            lineHeight: '0.95',
+            letterSpacing: '-0.02em'
           }}>
-            <span className="block">Legal work,</span>
-            <span className="block">without limits.</span>
+            <span className="block">AI for leaders,</span>
+            <span className="block">to decide better</span>
           </h1>
         </motion.div>
 
         {/* Logo Carousel - Positioned between headline and subtitle */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-8"
-        >
+        <div className="mb-8">
           <LogoCarousel />
-        </motion.div>
+        </div>
 
         {/* Subheadline - Exact Legora Specs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-12"
@@ -49,18 +47,12 @@ export function Hero() {
             fontFamily: 'var(--legora-font-display)',
             color: 'var(--legora-text-primary)'
           }}>
-            Spend less time on routine, and more time on the work only lawyers
-            can do. Legora frees you from admin so you can think sharper, move
-            faster, and deliver more for your clients.
+            Agatha turns your organization into a connected system, collecting employee intelligence to guide leaders, meet expectations, and predict future trends.
           </h3>
         </motion.div>
 
         {/* CTA Button - Exact Legora Specs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
+        <div>
           <Link 
             href="/book-a-demo"
             className="legora-button"
@@ -69,7 +61,7 @@ export function Hero() {
             <span className="pipe-separator">|</span>
             <span className="button-cta-text">Book a demo</span>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -5,33 +5,87 @@ export function Vision() {
       style={{ backgroundColor: 'var(--legora-bg-accent)' }}
     >
       <div className="mx-auto w-full" style={{ maxWidth: '1200px', padding: '0 24px' }}>
-        <div className="grid gap-12 md:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr]">
-          {/* Author Info */}
-          <div style={{ textAlign: 'left' }}>
-            <h2 
-              className="mb-8"
-              style={{
-                fontSize: '32px',
-                fontWeight: 400,
-                lineHeight: '35.2px',
-                letterSpacing: '-0.32px',
-                fontFamily: 'var(--legora-font-display)',
-                color: 'var(--legora-text-primary)'
-              }}
-            >
-              Our Vision
-            </h2>
+        {/* Heading */}
+        <h2 
+          style={{
+            fontSize: '32px',
+            fontWeight: 400,
+            lineHeight: '35.2px',
+            letterSpacing: '-0.32px',
+            fontFamily: 'var(--legora-font-display)',
+            color: 'var(--legora-text-primary)',
+            marginBottom: '48px',
+            marginTop: 0,
+            textAlign: 'left'
+          }}
+        >
+          Our Vision
+        </h2>
+        
+        {/* Images with Names - At the top */}
+        <div 
+          className="mb-16"
+          style={{ 
+            display: 'flex', 
+            flexDirection: 'row', 
+            gap: '32px',
+            flexWrap: 'wrap'
+          }}
+        >
+          <div>
             <div 
-              className="mb-2"
-              style={{
-                fontSize: '13px',
-                fontWeight: 400,
-                lineHeight: '16.9px',
-                fontFamily: 'var(--legora-font-body)',
-                color: 'var(--legora-text-primary)'
+              className="flex items-center justify-center"
+              style={{ 
+                width: '275px',
+                height: '366px',
+                marginBottom: '12px',
+                backgroundColor: '#f5f5f5',
+                border: '1px dashed #d0d0d0',
+                borderRadius: '8px',
+                position: 'relative'
               }}
             >
-              Max Junestrand
+              <div style={{ textAlign: 'center' }}>
+                <div 
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    margin: '0 auto 12px',
+                    backgroundColor: '#e0e0e0',
+                    borderRadius: '4px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+                <span 
+                  style={{ 
+                    fontSize: '11px',
+                    fontFamily: 'var(--legora-font-ui)',
+                    color: '#999999',
+                    display: 'block'
+                  }}
+                >
+                  Image placeholder
+                </span>
+                <span 
+                  style={{ 
+                    fontSize: '10px',
+                    fontFamily: 'var(--legora-font-ui)',
+                    color: '#999999',
+                    display: 'block',
+                    marginTop: '4px'
+                  }}
+                >
+                  275 × 366px
+                </span>
+              </div>
             </div>
             <div 
               style={{
@@ -40,85 +94,118 @@ export function Vision() {
                 lineHeight: '16.9px',
                 fontFamily: 'var(--legora-font-body)',
                 color: 'var(--legora-text-primary)',
-                opacity: 0.7
+                textAlign: 'left'
               }}
             >
-              Co-founder & CEO
+              Pranoy Mathew
             </div>
           </div>
-
-          {/* Content */}
-          <div className="space-y-6">
-            {/* Image Placeholders */}
-            <div className="mb-6 grid grid-cols-2 gap-4">
-              <div 
-                className="bg-muted/30 rounded-lg flex items-center justify-center"
-                style={{ 
-                  width: '100%',
-                  aspectRatio: '275 / 366',
-                  maxWidth: '275px',
-                  maxHeight: '366px'
-                }}
-              >
+          <div>
+            <div 
+              className="flex items-center justify-center"
+              style={{ 
+                width: '275px',
+                height: '366px',
+                marginBottom: '12px',
+                backgroundColor: '#f5f5f5',
+                border: '1px dashed #d0d0d0',
+                borderRadius: '8px',
+                position: 'relative'
+              }}
+            >
+              <div style={{ textAlign: 'center' }}>
+                <div 
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    margin: '0 auto 12px',
+                    backgroundColor: '#e0e0e0',
+                    borderRadius: '4px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
                 <span 
-                  className="text-xs text-muted-foreground text-center p-2"
-                  style={{ fontFamily: 'var(--legora-font-ui)' }}
+                  style={{ 
+                    fontSize: '11px',
+                    fontFamily: 'var(--legora-font-ui)',
+                    color: '#999999',
+                    display: 'block'
+                  }}
                 >
                   Image placeholder
-                  <br />
+                </span>
+                <span 
+                  style={{ 
+                    fontSize: '10px',
+                    fontFamily: 'var(--legora-font-ui)',
+                    color: '#999999',
+                    display: 'block',
+                    marginTop: '4px'
+                  }}
+                >
                   275 × 366px
                 </span>
               </div>
-              <div 
-                className="bg-muted/30 rounded-lg flex items-center justify-center"
-                style={{ 
-                  width: '100%',
-                  aspectRatio: '743 / 594',
-                  maxWidth: '743px',
-                  maxHeight: '594px'
-                }}
-              >
-                <span 
-                  className="text-xs text-muted-foreground text-center p-2"
-                  style={{ fontFamily: 'var(--legora-font-ui)' }}
-                >
-                  Image placeholder
-                  <br />
-                  743 × 594px
-                </span>
-              </div>
             </div>
-
             <div 
-              className="space-y-4"
               style={{
                 fontSize: '13px',
                 fontWeight: 400,
                 lineHeight: '16.9px',
                 fontFamily: 'var(--legora-font-body)',
-                color: 'var(--legora-text-primary)'
+                color: 'var(--legora-text-primary)',
+                textAlign: 'left'
               }}
             >
-              <p>
-                Lawyers bring judgment, strategy, and creativity. AI brings speed,
-                scale, and precision. Together, they unlock new possibilities for
-                how legal work gets done.
-              </p>
-              <p>
-                Our vision is to give every lawyer the tools to focus on what
-                matters most: advising clients, shaping outcomes, and driving
-                progress. By removing repetitive tasks and streamlining complex
-                workflows, we help lawyers spend less time on admin and more time
-                practising law at its highest level.
-              </p>
-              <p className="pt-4">
-                We're building more than a product. Alongside industry
-                professionals, we're building a new golden standard for legal
-                work. A future where tech complements expertise, where legal teams
-                operate with confidence and efficiency, and where every lawyer has
-                the freedom to do their best work.
-              </p>
+              Korey Stegared-pace
             </div>
+          </div>
+        </div>
+
+        {/* Text Content in Two Columns */}
+        <div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16"
+          style={{
+            fontSize: '13px',
+            fontWeight: 400,
+            lineHeight: '20px',
+            fontFamily: 'var(--legora-font-body)',
+            color: 'var(--legora-text-primary)'
+          }}
+        >
+          {/* Left Text Column */}
+          <div>
+            <p style={{ marginBottom: '24px', marginTop: 0 }}>
+              More than 3.6 billion people around the world are part of the workforce, and many of them will spend a large part of their lives at work. It's only reasonable to have expectations about what work should feel like. Not just productive, but clear, fair, and even exciting.
+            </p>
+            <p style={{ marginBottom: 0 }}>
+              Yet most problems at work don't come from a lack of effort or skill. They come from misunderstanding. Communication is treated as language alone, but real communication goes deeper. It's shaped by upbringing, culture, experience, motivation, and expectations. When these differences aren't understood, alignment breaks down. And when alignment breaks down, performance, trust, and energy follow.
+            </p>
+          </div>
+          
+          {/* Right Text Column */}
+          <div>
+            <p style={{ marginBottom: '24px', marginTop: 0 }}>
+              Without solving this deeper layer of communication, we're not solving the real problem of work.
+            </p>
+            <p style={{ marginBottom: '24px' }}>
+              Agatha represents a future where AI becomes a shared communication layer inside organizations. A layer that listens across teams, understands human signals, and makes expectations clear and visible for everyone.
+            </p>
+            <p style={{ marginBottom: '24px' }}>
+              By turning employee intelligence into understanding and foresight, Agatha helps leaders and teams work with clarity instead of assumptions. When people feel understood and aligned, work becomes lighter, faster, and more meaningful.
+            </p>
+            <p style={{ marginBottom: 0 }}>
+              This is how work becomes exciting again.
+              Not by adding more tools, but by finally understanding the people doing the work.
+            </p>
           </div>
         </div>
       </div>
