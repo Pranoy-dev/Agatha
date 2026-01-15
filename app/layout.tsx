@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Legora - Legal work, without limits",
-  description: "Spend less time on routine, and more time on the work only lawyers can do. Legora frees you from admin so you can think sharper, move faster, and deliver more for your clients.",
+  title: "Agatha - AI for leaders, to decide better",
+  description: "Agatha turns your organization into a connected system, collecting employee intelligence to guide leaders, meet expectations, and predict future trends.",
 };
 
 export default function RootLayout({
