@@ -47,16 +47,22 @@ export function Solutions() {
             title="Retain top talent"
             description="Keeping great people starts with understanding why they leave. Agatha detects early signals of disengagement, unmet expectations, and stalled growth, helping leaders intervene early and retain employees longer."
             href="/solutions/retain-talent"
+            imageSrc="/images/solution-1.png"
+            imageAlt="Professional portrait of a business leader"
           />
           <SolutionCard
             title="Prevent performance decline"
             description="Performance rarely drops overnight. Agatha identifies early signs of burnout, misalignment, and friction across teams, so leaders can act early and restore momentum before results suffer."
             href="/solutions/prevent-decline"
+            imageSrc="/images/solution-2.png"
+            imageAlt="Professional portrait of a team member"
           />
           <SolutionCard
             title="Guide employee trajectory"
             description="Growth looks different for every employee. Agatha helps leaders understand where people are most likely to grow and succeed, enabling better role alignment, development paths, and long-term engagement."
             href="/solutions/employee-trajectory"
+            imageSrc="/images/solution-3.png"
+            imageAlt="Professional portrait of a business professional"
           />
         </div>
       </div>

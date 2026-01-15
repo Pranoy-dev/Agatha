@@ -26,14 +26,12 @@ export function Certifications() {
     <section 
       className="legora-section"
       style={{ 
-        backgroundColor: 'var(--legora-bg-dark)',
-        paddingTop: '160px',
-        paddingBottom: '160px'
+        backgroundColor: 'var(--legora-bg-dark)'
       }}
     >
       <div className="mx-auto w-full" style={{ maxWidth: '1200px', padding: '0 24px' }}>
         {/* Header Section */}
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p 
             style={{
               fontSize: '13px',

@@ -42,6 +42,20 @@ export function Header() {
         {/* Login Button - Desktop - Exact Legora Specs */}
         <div className="hidden items-center gap-4 md:flex">
           <Link 
+            href="/contact"
+            className="inline-flex items-center"
+            style={{
+              fontSize: '12px',
+              fontWeight: 400,
+              fontFamily: 'var(--legora-font-ui)',
+              color: 'var(--legora-text-primary)',
+              padding: '0',
+              textAlign: 'left'
+            }}
+          >
+            Contact us
+          </Link>
+          <Link 
             href="/login"
             className="inline-flex items-center"
             style={{
@@ -69,6 +83,11 @@ export function Header() {
         <div className="border-t bg-background md:hidden">
           <nav className="container mx-auto px-4 py-4">
             <div className="flex flex-col gap-2">
+              <Button variant="ghost" asChild className="w-full justify-start">
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                  Contact us
+                </Link>
+              </Button>
               <Button variant="ghost" asChild className="w-full justify-start">
                 <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
                   Log in

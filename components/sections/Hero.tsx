@@ -57,7 +57,7 @@ export function Hero() {
             href="/book-a-demo"
             className="legora-button"
           >
-            <span>Shift focus from admin to expertise</span>
+            <span>Solve what actually matters</span>
             <span className="pipe-separator">|</span>
             <span className="button-cta-text">Book a demo</span>
           </Link>

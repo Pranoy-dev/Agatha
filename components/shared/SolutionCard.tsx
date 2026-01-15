@@ -1,35 +1,72 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 interface SolutionCardProps {
   title: string;
   description: string;
   href: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
-export function SolutionCard({ title, description, href }: SolutionCardProps) {
+export function SolutionCard({ title, description, href, imageSrc, imageAlt }: SolutionCardProps) {
+  const [imageError, setImageError] = useState(false);
+
+  // Prevent text selection during hover/transform
+  const preventSelection = (e: React.MouseEvent | React.SyntheticEvent) => {
+    e.preventDefault();
+    return false;
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    // Prevent text selection on double-click or drag
+    if (e.detail > 1 || e.button === 0) {
+      e.preventDefault();
+    }
+  };
+
   return (
-    <Link href={href} className="group block" style={{ textAlign: 'left' }}>
-      <div className="h-full transition-all hover:opacity-80">
-        {/* Image Placeholder with similar visual style to FeatureCard */}
+    <Link 
+      href={href} 
+      className="group block select-none" 
+      style={{ 
+        textAlign: 'left',
+        textDecoration: 'none',
+        color: 'inherit'
+      }}
+      onMouseDown={handleMouseDown}
+      onSelect={preventSelection}
+      onSelectStart={preventSelection}
+      onDragStart={(e) => e.preventDefault()}
+      onContextMenu={(e) => e.preventDefault()}
+    >
+      <div 
+        className="h-full select-none"
+        onMouseDown={handleMouseDown}
+        onSelect={preventSelection}
+        onSelectStart={preventSelection}
+      >
+        {/* Image Container */}
         <div 
-          className="mb-8 w-full overflow-hidden rounded-lg flex items-center justify-center"
+          className="mb-8 w-full overflow-hidden flex items-center justify-center"
           style={{ 
             width: '100%',
-            aspectRatio: '366 / 488',
-            backgroundColor: 'rgba(0, 0, 0, 0.03)',
-            backdropFilter: 'blur(8px)',
-            padding: '24px',
-            borderRadius: '12px'
+            aspectRatio: '366 / 488'
           }}
         >
-          <div 
-            className="w-full h-full rounded-lg flex items-center justify-center"
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '8px',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
-            }}
-          >
+          {imageSrc && !imageError ? (
+            <img
+              src={imageSrc}
+              alt={imageAlt || title}
+              className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+              style={{ 
+                display: 'block'
+              }}
+              onError={() => setImageError(true)}
+            />
+          ) : (
             <div className="text-center p-4">
               <span 
                 className="text-xs"
@@ -44,34 +81,50 @@ export function SolutionCard({ title, description, href }: SolutionCardProps) {
                 366 × 488px
               </span>
             </div>
-          </div>
+          )}
         </div>
         
         {/* Title - Matching FeatureCard style */}
         <h3 
-          className="mb-4"
+          className="mb-4 select-none"
           style={{
             fontSize: '24px',
             fontWeight: 700,
             lineHeight: '26.4px',
             letterSpacing: '-0.24px',
             fontFamily: 'var(--legora-font-display)',
-            color: 'var(--legora-text-primary)'
+            color: 'var(--legora-text-primary)',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            MozUserSelect: 'none',
+            msUserSelect: 'none',
+            pointerEvents: 'auto'
           }}
+          onMouseDown={handleMouseDown}
+          onSelect={preventSelection}
+          onSelectStart={preventSelection}
         >
           {title}
         </h3>
         
         {/* Description - Matching FeatureCard style */}
         <p 
-          className="leading-relaxed"
+          className="leading-relaxed select-none"
           style={{
             fontSize: '13px',
             fontWeight: 400,
             lineHeight: '20px',
             fontFamily: 'var(--legora-font-body)',
-            color: 'rgba(10, 10, 10, 0.7)'
+            color: 'rgba(10, 10, 10, 0.7)',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            MozUserSelect: 'none',
+            msUserSelect: 'none',
+            pointerEvents: 'auto'
           }}
+          onMouseDown={handleMouseDown}
+          onSelect={preventSelection}
+          onSelectStart={preventSelection}
         >
           {description}
         </p>

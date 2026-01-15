@@ -141,7 +141,7 @@
   --legora-text-primary: #0a0a0a; /* Primary text - very dark gray */
   --legora-link-color: #0000ee; /* Link color - standard blue */
   --legora-bg-dark: #0a0a0a; /* Dark section background */
-  --legora-bg-accent: #ebf5ed; /* Vision section background - light green */
+  --legora-bg-accent: #e8e6d8; /* Vision section background - light beige tint of #bbb791 */
   
   /* Legacy colors (kept for compatibility) */
   --legora-primary-dark: #0a0a0a;
@@ -274,15 +274,30 @@
   }
   
   /* Links - Legora Style */
-  a:not(.legora-button) {
+  a:not(.legora-button):not(.group.block) {
     color: var(--legora-link-color);
     text-decoration: none;
     font-family: var(--legora-font-ui);
     font-size: var(--legora-text-nav);
   }
   
-  a:not(.legora-button):hover {
+  a:not(.legora-button):not(.group.block):hover {
     text-decoration: underline;
+  }
+  
+  /* Card links should not have underline or link styling */
+  a.group.block {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  
+  a.group.block:hover {
+    text-decoration: none !important;
+  }
+  
+  a.group.block * {
+    text-decoration: none !important;
+    color: inherit !important;
   }
   
   /* Navigation & UI Elements */
@@ -296,6 +311,48 @@
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Prevent text selection on interactive hover elements with transforms */
+  a.group.block,
+  a.group[class*="hover"],
+  a.group.block *,
+  a.group[class*="hover"] * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  /* Specifically target elements with transform on hover */
+  .group-hover\:scale-105,
+  .group-hover\:scale-105 * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+  }
+  
+  /* Prevent selection when group is hovered */
+  .group:hover * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+  }
+  
+  /* Make any accidental selection invisible */
+  a.group.block ::selection,
+  a.group.block *::selection {
+    background: transparent !important;
+    color: inherit !important;
+  }
+  
+  a.group.block ::-moz-selection,
+  a.group.block *::-moz-selection {
+    background: transparent !important;
+    color: inherit !important;
   }
 
   /* Container utility - Legora Max Width */

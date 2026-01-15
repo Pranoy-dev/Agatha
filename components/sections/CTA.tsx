@@ -15,7 +15,7 @@ export function CTA() {
             color: 'var(--legora-text-primary)'
           }}
         >
-          Ready to realize your full potential?
+          Have more questions?
         </h2>
         <h2 
           className="mb-8 mx-auto max-w-3xl"
@@ -28,14 +28,13 @@ export function CTA() {
             color: 'var(--legora-text-primary)'
           }}
         >
-          Discover how Legora can put time back in your hands for what matters
-          most.
+          Discover how Agatha can help you make better decisions and build a more aligned organization.
         </h2>
         <Link 
-          href="/book-a-demo"
+          href="/contact"
           className="legora-button"
         >
-          <span className="button-cta-text">Book a demo</span>
+          <span className="button-cta-text">Contact us</span>
         </Link>
       </div>
     </section>
