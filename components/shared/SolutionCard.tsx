@@ -14,12 +14,6 @@ interface SolutionCardProps {
 export function SolutionCard({ title, description, href, imageSrc, imageAlt }: SolutionCardProps) {
   const [imageError, setImageError] = useState(false);
 
-  // Prevent text selection during hover/transform
-  const preventSelection = (e: React.MouseEvent | React.SyntheticEvent) => {
-    e.preventDefault();
-    return false;
-  };
-
   const handleMouseDown = (e: React.MouseEvent) => {
     // Prevent text selection on double-click or drag
     if (e.detail > 1 || e.button === 0) {
@@ -36,17 +30,11 @@ export function SolutionCard({ title, description, href, imageSrc, imageAlt }: S
         textDecoration: 'none',
         color: 'inherit'
       }}
-      onMouseDown={handleMouseDown}
-      onSelect={preventSelection}
-      onSelectStart={preventSelection}
       onDragStart={(e) => e.preventDefault()}
-      onContextMenu={(e) => e.preventDefault()}
     >
       <div 
         className="h-full select-none"
         onMouseDown={handleMouseDown}
-        onSelect={preventSelection}
-        onSelectStart={preventSelection}
       >
         {/* Image Container */}
         <div 
@@ -97,12 +85,8 @@ export function SolutionCard({ title, description, href, imageSrc, imageAlt }: S
             userSelect: 'none',
             WebkitUserSelect: 'none',
             MozUserSelect: 'none',
-            msUserSelect: 'none',
-            pointerEvents: 'auto'
+            msUserSelect: 'none'
           }}
-          onMouseDown={handleMouseDown}
-          onSelect={preventSelection}
-          onSelectStart={preventSelection}
         >
           {title}
         </h3>
@@ -119,12 +103,8 @@ export function SolutionCard({ title, description, href, imageSrc, imageAlt }: S
             userSelect: 'none',
             WebkitUserSelect: 'none',
             MozUserSelect: 'none',
-            msUserSelect: 'none',
-            pointerEvents: 'auto'
+            msUserSelect: 'none'
           }}
-          onMouseDown={handleMouseDown}
-          onSelect={preventSelection}
-          onSelectStart={preventSelection}
         >
           {description}
         </p>
