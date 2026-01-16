@@ -13,6 +13,15 @@ export function Header() {
       <div className="mx-auto w-full flex h-16 items-center justify-between" style={{ maxWidth: '1200px', padding: '0 24px' }}>
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
+          <img
+            src="/images/Logo.png"
+            alt="Agatha logo"
+            style={{
+              height: '24px',
+              width: 'auto',
+              display: 'block'
+            }}
+          />
           <span 
             className="text-xl font-bold"
             style={{
