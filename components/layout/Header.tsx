@@ -14,7 +14,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <img
-            src="/images/Logo.png"
+            src="/images/logo.png"
             alt="Agatha logo"
             style={{
               height: '24px',
