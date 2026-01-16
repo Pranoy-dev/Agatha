@@ -41,7 +41,8 @@ export function Certifications() {
               color: 'rgba(255, 255, 255, 0.7)',
               textTransform: 'uppercase',
               letterSpacing: '0.5px',
-              marginBottom: '16px'
+              marginBottom: '16px',
+              marginTop: '0'
             }}
           >
             CERTIFIED & COMPLIANT
@@ -55,7 +56,9 @@ export function Certifications() {
               letterSpacing: '-0.32px',
               fontFamily: 'var(--legora-font-display)',
               color: '#ffffff',
-              maxWidth: '900px'
+              maxWidth: '900px',
+              marginTop: '0',
+              marginBottom: '0'
             }}
           >
             Agatha is committed to maintaining compliance with the most
@@ -66,15 +69,22 @@ export function Certifications() {
         {/* Certifications Grid with vertical separators */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4" style={{ textAlign: 'left', gap: '0' }}>
           {certifications.map((cert, index) => {
+            const isLast = index === certifications.length - 1;
+            const isLastInRowMd = (index + 1) % 2 === 0; // Items 2, 4 in 2-column layout
+            const isLastInRowLg = (index + 1) % 4 === 0; // Item 4 in 4-column layout
+            
             return (
               <div 
                 key={index} 
-                className="h-full flex flex-col relative"
-                style={{
-                  paddingRight: index < certifications.length - 1 ? '40px' : '0',
-                  paddingLeft: index > 0 ? '40px' : '0',
-                  borderRight: index < certifications.length - 1 ? '1px solid rgba(255, 255, 255, 0.15)' : 'none'
-                }}
+                className={`h-full flex flex-col relative ${
+                  isLast ? '' : 'pb-4 mb-16'
+                } md:pb-0 md:mb-0 md:border-b-0 md:pr-10 md:pl-10 ${
+                  // Show border on md unless it's last in md row
+                  !isLastInRowMd ? 'md:border-r md:border-white/15' : ''
+                } ${
+                  // Show border on lg unless it's last in lg row
+                  !isLastInRowLg ? 'lg:border-r lg:border-white/15' : ''
+                }`}
               >
                 {/* Title - Bold */}
                 <h3 
@@ -85,7 +95,8 @@ export function Certifications() {
                     letterSpacing: '-0.2px',
                     fontFamily: 'var(--legora-font-display)',
                     color: '#ffffff',
-                    marginBottom: '12px'
+                    marginTop: '0',
+                    marginBottom: '16px'
                   }}
                 >
                   {cert.title}
@@ -99,6 +110,7 @@ export function Certifications() {
                     lineHeight: '20px',
                     fontFamily: 'var(--legora-font-body)',
                     color: 'rgba(255, 255, 255, 0.8)',
+                    marginTop: '0',
                     marginBottom: '32px',
                     flexGrow: 1
                   }}
@@ -108,8 +120,13 @@ export function Certifications() {
                 
                 {/* Icon - Circular outline at bottom */}
                 <div 
-                  className="flex items-center justify-start"
-                  style={{ width: '56px', height: '56px', marginTop: 'auto' }}
+                  className="hidden lg:flex items-center justify-start"
+                  style={{ 
+                    width: '56px', 
+                    height: '56px', 
+                    marginTop: 'auto',
+                    marginBottom: '0'
+                  }}
                 >
                   <div 
                     className="rounded-full border-2 flex items-center justify-center"
